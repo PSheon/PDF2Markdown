@@ -3,7 +3,9 @@ from typing import Optional
 import base64
 from pathlib import Path
 
-import google.generativeai as genai
+from google.generativeai.client import configure
+from google.generativeai.generative_models import GenerativeModel
+from google.generativeai import types
 
 logger = logging.getLogger(__name__)
 
@@ -21,8 +23,8 @@ class LLMClient:
         """
         self.api_key = api_key
         self.model = model
-        genai.configure(api_key=api_key)
-        self.client = genai.GenerativeModel(model)
+        configure(api_key=api_key)
+        self.client = GenerativeModel(model)
 
     def completion(
         self,
@@ -63,7 +65,7 @@ class LLMClient:
 
         try:
             # Configure generation parameters
-            generation_config = genai.types.GenerationConfig(
+            generation_config = types.GenerationConfig(
                 temperature=temperature,
                 max_output_tokens=max_tokens,
             )
