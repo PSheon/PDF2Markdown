@@ -4,6 +4,8 @@
 
    <p>A powerful tool that leverages multimodal large language models to transcribe PDF files into Markdown format.</p>
 
+   <p>inspired by <a href="https://github.com/MarkPDFdown/markpdfdown">MarkPDFdown</a></p>
+
 </div>
 
 ## Overview
